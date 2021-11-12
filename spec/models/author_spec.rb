@@ -11,4 +11,9 @@ describe 'Author model', type: :model do
     author = Author.new(first_name: 'Alan', last_name: '', homepage: 'example.com')
     expect(author).to_not be_valid
   end
+
+  it 'should have an empty paper list at the start' do
+    author = Author.new(first_name: 'Alan', last_name: 'Turing', homepage: 'http://wikipedia.org/Alan_Turing')
+    expect(author.papers).to be_empty
+  end
 end
