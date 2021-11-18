@@ -4,4 +4,8 @@ class Paper < ApplicationRecord
   validates :year, numericality: { only_integer: true }
 
   has_and_belongs_to_many :authors
+
+  def self.published_in(year)
+    where('year == ?', year)
+  end
 end
